@@ -4,8 +4,9 @@ const router = require("./routes/book-routes");
 
 const app = express();
 
-app.use("/books", router);
 app.use(express.json());
+app.use("/books", router);
+
 mongoose
   .connect(
     "mongodb+srv://admin:5PqYg9OKIVsbYHqE@cluster0.iksaunn.mongodb.net/bookStore?retryWrites=true&w=majority"

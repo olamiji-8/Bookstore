@@ -17,16 +17,13 @@ const getAllBooks = async(req,res,next) =>{
 const addBook = async (req, res, next) => {
     const { name, author, description, price, available} = req.body;
     let book;
-    console.log(Book)
     try{
         book = new Book({
             name, 
             author, 
             description,
             price,
-            available,
-
-            
+            available,  
         });
         await book.save();
     }catch (err){
