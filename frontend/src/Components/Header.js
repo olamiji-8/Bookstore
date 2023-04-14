@@ -6,17 +6,20 @@ const Header = () => {
     const [value, setValue] = useState();
   return (
     <div>
-        <AppBar>
+        <AppBar sx={{ backgroundColor:"#232F3D"}} position='sticky'>
             <Toolbar>
             <Typography>
                 <LibraryBooksIcon/>
             </Typography>
             <Tabs 
+            sx={{ml:"auto"}}
             textColor='inherit'
-            indicatorColor='secondary'
-            value={0}
+            indicatorColor='primary'
+            value={value}
+            onChange={(e, val)=>setValue(val)}
             >
                 <Tab label= "Add Product"/>
+                <Tab label= "Books"/>
                 <Tab label= "About Us"/>
             </Tabs>
             </Toolbar>
