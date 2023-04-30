@@ -1,18 +1,18 @@
 const Book = require("../model/Book");
 
 const getAllBooks = async (req, res, next) => {
-  let books;
   try {
-    books = await Book.find();
+    const books = await Book.find();
+    if (!books) {
+      return res.status(404).json({ message: "No products found" });
+    }
+    return res.status(200).json({ books });
   } catch (err) {
     console.log(err);
+    return res.status(500).json({ message: "Error fetching books" });
   }
-
-  if (!books) {
-    return res.status(404).json({ message: "No products found" });
-  }
-  return res.status(200).json({ books });
 };
+
 
 const getById = async (req, res, next) => {
   const id = req.params.id;
