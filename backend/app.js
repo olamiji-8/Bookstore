@@ -2,6 +2,7 @@ const express = require("express");
 const mongoose = require("mongoose");
 const router = require("./routes/book-routes");
 const cors = require("cors");
+require("dotenv").config();
 const app = express();
 
 app.use(express.json());
@@ -14,7 +15,7 @@ mongoose
   )
   .then(() => console.log("Connected To Database"))
   .then(() => {
-    app.listen(5000);
+    app.listen(process.env.PORT);
   })
   .catch((err) => console.log(err));
 
