@@ -11,7 +11,7 @@ app.use("/books", router);
 
 mongoose
   .connect(
-    "mongodb+srv://admin:5PqYg9OKIVsbYHqE@cluster0.iksaunn.mongodb.net/bookStore?retryWrites=true&w=majority"
+    "mongodb+srv://olapelu:vVuleK35WpMhggZS@cluster0.iksaunn.mongodb.net/?retryWrites=true&w=majority"
   )
   .then(() => console.log("Connected To Database"))
   .then(() => {
@@ -19,5 +19,5 @@ mongoose
   })
   .catch((err) => console.log(err));
 
-//5PqYg9OKIVsbYHqE
+//vVuleK35WpMhggZS
  

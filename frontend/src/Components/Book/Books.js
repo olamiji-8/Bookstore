@@ -1,5 +1,7 @@
 import React, { useEffect, useState } from 'react'
 import axios from "axios"
+import Book from './Book';
+
 const URL = "http://localhost:5000/books";
 
 
@@ -9,14 +11,24 @@ const fetchHandler =async ()=>{
 const Books = () => {
   const [books, setBooks] = useState();
   useEffect(()=>{
-    fetchHandler().then(data =>setBooks(data))
-  }, );
+    fetchHandler().then(data =>setBooks(data.books))
+  },[] );
 
 console.log(books);
 
   return (
     <div>
-      Books
+      <ul>
+        {books  && books.map((book, i) =>{
+          return(
+            <div  key={i}>
+            
+            <Book book={book}/>
+          </div>
+          )
+
+        })}
+      </ul>
     </div>
   )
 }
